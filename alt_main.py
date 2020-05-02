@@ -217,12 +217,14 @@ f = f/n
 s = s/n
 q = q/n
 w = w/n
-
+data = {d : 'DEEPLAB', f : 'FZ', s : 'SLIC', q : 'QUICK-SHIFT', w : 'WATERSHED'}
+overall_max = max(d, f, s, q, w)
 print('Average result of deeplab :', d)
 print('Average result of disparting with fz clustering :', f)
 print('Average result of disparting with slic clustering :', s)
 print('Average result of disparting with quick clustering :', q)
 print('Average result of disparting with watershed clustering :', w)
+print(data[overall_max], "is better among all")
 
 print('Time taken :', time.time()-start_time, 'second')
 
