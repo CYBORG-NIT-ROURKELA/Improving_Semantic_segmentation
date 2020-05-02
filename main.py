@@ -219,6 +219,18 @@ print('Average result of disparting with watershed clustering :', w)
 
 print('Time taken :', time.time()-start_time, 'second')
 
+print('----------------------------------Mean IoU table---------------------------------------')
+print('Sl No. \tdeeplab \tusing fz \tusing slic \tusing quick \tusing watershed')
+print('---------------------------------------------------------------------------------------')
+
+for i in range(n):
+    a = miou_deeplab[i]
+    b = miou_fz[i]
+    c = miou_slic[i]
+    d = miou_quick[i]
+    e = miou_watershed[i]
+    print("%d\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f"%(i+1, a, b, c, d, e))
+
 
 
     
