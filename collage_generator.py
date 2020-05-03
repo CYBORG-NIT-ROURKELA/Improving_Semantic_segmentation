@@ -19,9 +19,9 @@ bh = np.where(bh == 0, 255, 0)
 
 hblank = np.stack([rh, gh, bh], axis=2)
 
-rv = np.zeros((10, 692)).astype('int16')
-gv = np.zeros((10, 692)).astype('int16')
-bv = np.zeros((10, 692)).astype('int16')
+rv = np.zeros((10, 926)).astype('int16')
+gv = np.zeros((10, 926)).astype('int16')
+bv = np.zeros((10, 926)).astype('int16')
 
 rv = np.where(rv == 0, 255, 0)
 gv = np.where(gv == 0, 255, 0)
@@ -35,11 +35,11 @@ from skimage.color import label2rgb
 for i in range(n):
     img = Image.open(images_dir + images[i])
     img = t(img)
-    img1 = np.array(img)
-    a = np.array(label2rgb(label[i], img1, kind = 'overlay'))
-    b = np.array(label2rgb(deeplab[i], img1, kind = 'overlay'))
-    c = np.array(label2rgb(final_seg_quick[i], img1, kind = 'overlay'))
-    each_row = np.hstack((a, hblank, b, hblank, c))
+    i#mg1 = np.array(img)
+    a = decode(label[i])
+    b = decode(deeplab[i])
+    c = decode(final_seg_quick[i])
+    each_row = np.hstack((img, hblank, a, hblank, b, hblank, c))
     rows.append(each_row)
 
 image = vblank
