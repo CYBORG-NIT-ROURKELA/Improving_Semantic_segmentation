@@ -4,6 +4,7 @@ Created on Sat May  2 13:20:54 2020
 
 @author: Santanu
 """
+
 import time
 start_time = time.time()
 
@@ -158,6 +159,7 @@ miou_quick = []
 miou_watershed = []
 
 for i in range(len(images)):
+    print("Processing image", i+1)
     #encoding the ground truth mask
     temp_label = encode(mask_dir + masks[i])
     label.append(temp_label)
@@ -219,6 +221,7 @@ print('Average result of disparting with watershed clustering :', w)
 
 print('Time taken :', time.time()-start_time, 'second')
 
+'''
 print('----------------------------------Mean IoU table---------------------------------------')
 print('Sl No. \tdeeplab \tusing fz \tusing slic \tusing quick \tusing watershed')
 print('---------------------------------------------------------------------------------------')
@@ -230,7 +233,7 @@ for i in range(n):
     d = miou_quick[i]
     e = miou_watershed[i]
     print("%d\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f"%(i+1, a, b, c, d, e))
-
+'''
 
 
     
