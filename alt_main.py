@@ -11,7 +11,7 @@ start_time = time.time()
 import os 
 
 images = []
-images_dir = "C:/Desktop/pascal_mini_2/JPEGImages/"
+images_dir = "P:/Datasets/VOCdevkit/VOC2012/JPEGImages/"
 '''
 for _, _, files in os.walk(images_dir):
     for x in files:
@@ -20,7 +20,7 @@ for _, _, files in os.walk(images_dir):
 '''
 
 masks = []
-mask_dir = "C:/Desktop/pascal_mini_2/SegmentationClass/"
+mask_dir = "P:/Datasets/VOCdevkit/VOC2012/SegmentationClass/"
 for _, _, files in os.walk(mask_dir):
     for x in files:
         if x.endswith(".png") == True:
@@ -166,6 +166,8 @@ miou_watershed = []
 
 for i in range(len(images)):
     #encoding the ground truth mask
+    if(i%100==99):
+        print(i+1)
     temp_label = encode(mask_dir + masks[i])
     label.append(temp_label)
     
@@ -232,10 +234,19 @@ print('----------------------------------Mean IoU table-------------------------
 print('Sl No. \tdeeplab \tusing fz \tusing slic \tusing quick \tusing watershed')
 print('---------------------------------------------------------------------------------------')
 
+file = open('results.txt', 'w')
+file.write("Sl no. \t\t miou_deeplab \t miou_fz \t \tmiou_slic \t miou_quick \t \tmiou_watershed\n")
+print("Sl no. \t miou_deeplab \t miou_fz \t miou_slic \t miou_quick \t miou_watershed")
+
+
+
 for i in range(n):
     a = miou_deeplab[i]
     b = miou_fz[i]
     c = miou_slic[i]
     d = miou_quick[i]
     e = miou_watershed[i]
-    print("%d\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f"%(i+1, a, b, c, d, e))
+    file.write(str(i+1)+"\t"+str(a)+"\t"+str(b)+"\t"+str(c)+"\t"+str(d)+"\t"+str(e)+"\n")
+    #print("%d\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f\t\t%.4f"%(i+1, a, b, c, d, e))
+    
+file.close()
