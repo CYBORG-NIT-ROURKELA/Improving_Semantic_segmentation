@@ -3,3 +3,4 @@ In the field of Deep Neural Network and Deep Learning, it is commonly observed t
 This problem poses major hindrance to the accuracy in the semantic segmentation and it also leads to very high losses in ventures involving satellite imaging. Due to the involvement of very fine edges in 'Satellite images' missing them would lead to unbearable expenses and losses. Hence this becomes a major problem to be dealt with.
 We solve this anomaly through the use of clustering methods. Clustering helps in Fine Edge Detection of the images and together with DeepLabV3 proves to be an indispensable tool for the solution.
 After clustering the images, the segmentation of the Neural Network (here DeepLabV3) is enhanced by the use of our merging algorithm known as Disparting.
+![Our overall pipeline](https://github.com/CYBORG-NIT-ROURKELA/Improving_Semantic_segmentation/blob/master/Result_Images/Flowchart.PNG)
